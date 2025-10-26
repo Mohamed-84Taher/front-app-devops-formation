@@ -10,6 +10,7 @@ env:
   IMAGE_NAME: ${{ vars.DOCKERHUB_USERNAME }}/front-app
   PROJECT_PATH: /home/user/fullstasck-devops-app/front/dev
   DOCKER_SERVICE: front-app
+  BASE_API_URL: https://test-api.34.lebondeveloppeur.net/api
 
 jobs:
   unit-test:
@@ -32,7 +33,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Build Docker image
-        run: docker build -t ${{ env.IMAGE_NAME }} .
+        run: docker build -t ${{ env.IMAGE_NAME }} --build-arg VITE_API_URL=${{ env.BASE_API_URL }} .
 
       - name: Tag Docker image
         run: docker tag ${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}:${{env.BUILD_NUMBER}}
