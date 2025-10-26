@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: ${{ vars.DOCKERHUB_USERNAME }}/front-app
   PROJECT_PATH: /home/user/fullstasck-devops-app/front/dev
   DOCKER_SERVICE: front-app
-  BASE_API_URL: https://test-api.34.lebondeveloppeur.net/api
+  BASE_API_URL: https://test-api.34.lebondeveloppeur.net
 
 jobs:
   unit-test:
